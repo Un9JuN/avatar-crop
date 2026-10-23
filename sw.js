@@ -4,7 +4,7 @@
  */
 'use strict';
 
-const VERSION = '0.9.0';
+const VERSION = '0.9.1';
 const SHELL_CACHE = 'avatar-shell-' + VERSION;
 const SHARED_CACHE = 'avatar-shared';
 

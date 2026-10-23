@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '0.9.0';
+  const APP_VERSION = '0.9.1';
   const $ = (id) => document.getElementById(id);
   // 截图通常不会超过 3000px：尽量按原分辨率分析，避免缩放取整带来 1px 黑边
   const ANALYSIS_MAX = 3000;
