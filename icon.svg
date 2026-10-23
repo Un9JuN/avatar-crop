@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="截图头像工坊">
+  <defs>
+    <radialGradient id="glow" cx="82%" cy="16%" r="78%">
+      <stop offset="0%" stop-color="#2c2218"/>
+      <stop offset="100%" stop-color="#121110"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+  <g fill="none" stroke="#efe9dd" stroke-width="14" stroke-linecap="square">
+    <path d="M84 148V84h64"/>
+    <path d="M428 148V84h-64"/>
+    <path d="M84 364v64h64"/>
+    <path d="M428 364v64h-64"/>
+  </g>
+  <circle cx="256" cy="256" r="74" fill="none" stroke="#d9a566" stroke-width="12"/>
+</svg>
