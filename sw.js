@@ -1,10 +1,10 @@
-/* 截图头像工坊 · Service Worker
+﻿/* 截图头像工坊 · Service Worker
  * - 离线缓存应用外壳
  * - 处理 Android「分享到应用」传来的截图
  */
 'use strict';
 
-const VERSION = '0.8.1';
+const VERSION = '0.9.0';
 const SHELL_CACHE = 'avatar-shell-' + VERSION;
 const SHARED_CACHE = 'avatar-shared';
 

@@ -13,7 +13,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="头像工坊" />
-  <link rel="stylesheet" href="style.css?v=0.8.1" />
+  <link rel="stylesheet" href="style.css?v=0.9.0" />
 </head>
 <body>
   <header class="topbar">
@@ -25,7 +25,7 @@
         </svg>
       </div>
       <div>
-        <h1>截图头像工坊 <span class="ver" id="appVer">v0.8.1</span></h1>
+        <h1>截图头像工坊 <span class="ver" id="appVer">v0.9.0</span></h1>
         <p>SCREENSHOT → FRAME · 本机处理</p>
       </div>
     </div>
@@ -52,6 +52,7 @@
         </select>
       </label>
       <label class="check" title="裁成 1:1（会切掉画面）"><input type="checkbox" data-opt="square" /> 1:1</label>
+      <button id="aiBtn" class="btn">AI 识别</button>
       <button id="installBtn" class="btn ghost hidden">安装到桌面</button>
       <button id="pickBtn" class="btn primary">选择图片</button>
       <button id="sampleBtn" class="btn">看示例</button>
@@ -126,9 +127,44 @@
     </div>
   </div>
 
+  <div id="aiModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-labelledby="aiTitle">
+      <header class="modal-head">
+        <h2 id="aiTitle">AI 识别（联网）</h2>
+        <button id="aiClose" class="btn ghost">关闭</button>
+      </header>
+      <p class="modal-note">
+        开启后，截图会上传到所选服务商用于识别「画面矩形」。API Key 只保存在本浏览器，不会写进代码或仓库。
+      </p>
+      <label class="check"><input type="checkbox" id="aiEnable" /> 启用 AI 识别（导入时自动调用）</label>
+      <label class="field col">服务商
+        <select id="aiProvider">
+          <option value="dashscope">通义千问（阿里云百炼）</option>
+          <option value="openai">OpenAI</option>
+          <option value="custom">自定义（OpenAI 兼容）</option>
+        </select>
+      </label>
+      <label class="field col">Base URL
+        <input id="aiBase" type="url" spellcheck="false" />
+      </label>
+      <label class="field col">模型
+        <input id="aiModel" type="text" spellcheck="false" />
+      </label>
+      <label class="field col">API Key
+        <input id="aiKey" type="password" spellcheck="false" placeholder="sk-..." />
+      </label>
+      <div class="modal-actions">
+        <button id="aiTest" class="btn">测试连接</button>
+        <button id="aiAll" class="btn">重新识别现有图片</button>
+        <button id="aiSave" class="btn primary">保存</button>
+      </div>
+      <p id="aiStatus" class="modal-status muted"></p>
+    </div>
+  </div>
+
   <input id="fileInput" type="file" accept="image/*" multiple hidden />
-  <script src="src/auto-crop.js?v=0.8.1"></script>
-  <script src="src/zip.js?v=0.8.1"></script>
-  <script src="src/app.js?v=0.8.1"></script>
+  <script src="src/auto-crop.js?v=0.9.0"></script>
+  <script src="src/zip.js?v=0.9.0"></script>
+  <script src="src/app.js?v=0.9.0"></script>
 </body>
 </html>

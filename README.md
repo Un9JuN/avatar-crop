@@ -56,6 +56,35 @@ PWA 需要 **HTTPS 或 localhost** 才能启用 Service Worker（直接双击 `f
 - 无外部字体、无外部图片依赖，离线可用；
 - 已跑 Impeccable 设计检测器，仅剩一条浅色渐变近似告警（实际文本落在深色底上）。
 
+## AI 识别（联网，可选）
+
+默认关闭。开启后，每张导入的截图会上传到所选视觉模型服务商，让它识别「真正的画面矩形」；API Key 只保存在本机浏览器（localStorage），不写进代码/仓库。
+
+支持 OpenAI 兼容接口：
+
+| 服务商 | Base URL | 模型 |
+|---|---|---|
+| 通义千问（阿里云百炼，推荐，浏览器 CORS 可用） | `https://dashscope.aliyuncs.com/compatible-mode/v1` | `qwen-vl-max` |
+| OpenAI | `https://api.openai.com/v1` | `gpt-4o-mini` |
+| 自定义 | 自己填 | 自己填 |
+
+### 哪里拿 API Key（阿里云百炼）
+
+1. 打开 https://bailian.console.aliyun.com/ 并登录（需阿里云账号、实名）；
+2. 首次使用先「开通百炼」，新用户通常有免费额度；
+3. 控制台右上角用户菜单 → **API-KEY 管理**（或直接访问 https://bailian.console.aliyun.com/?apiKey=1 ）；
+4. 点「创建我的 API-KEY」，复制 `sk-` 开头的字符串；
+5. 回到应用 → 顶部「AI 识别」→ 粘贴 Key → **测试连接** → 保存并勾选启用。
+
+> OpenAI 的 Key 在 https://platform.openai.com/api-keys ；需要账户有余额，且国内网络可能访问受限。
+> 智谱 GLM-4V 的接口目前不允许浏览器跨域调用（已实测），所以没有做成预设。
+
+**注意**
+
+- 开启 AI 后图片会离开设备，按服务商计费（约几分钱到一毛钱一张，具体看服务商定价）；
+- 接口失败、超时或返回无效框时，会自动回退到本地算法，不会卡住导入；
+- 本地算法仍是默认路径；AI 是可选的增强项。
+
 ## 算法（不依赖任何模型/库）
 
 `src/auto-crop.js`：

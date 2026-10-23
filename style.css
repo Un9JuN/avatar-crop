@@ -1,4 +1,4 @@
-﻿/* 截图头像工坊 · 视觉系统
+/* 截图头像工坊 · 视觉系统
  * 方向：暗房 / 接触印相（darkroom contact sheet）
  * 暖炭黑为底、骨白为纸、安全灯琥珀作为唯一的强调色；细线、编号、等宽标注。
  */
@@ -521,6 +521,76 @@ body.has-items .dropzone .btn { margin-top: 0; }
 .meta b { font-family: var(--font-mono); font-weight: 500; color: var(--text); }
 
 .editor-side .field { justify-content: space-between; }
+
+/* ---------- AI 设置弹层 ---------- */
+
+input[type="url"],
+input[type="text"],
+input[type="password"] {
+  min-width: 0;
+  padding: 8px 10px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+input[type="url"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus { border-color: var(--amber); outline: none; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(8, 7, 6, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.modal.hidden { display: none; }
+
+.modal-panel {
+  width: min(520px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.6);
+}
+
+.modal-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.modal-head h2 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 0.02em; }
+
+.modal-note { margin: 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+
+.field.col { flex-direction: column; align-items: stretch; gap: 5px; }
+
+.modal-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+
+.modal-status {
+  min-height: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .modal { padding: 10px; }
+  .modal-panel { padding: 14px; }
+}
 
 /* ---------- 响应式 ---------- */
 
